@@ -1,0 +1,17 @@
+.terrain-grid {
+  display: grid;
+  justify-content: center;
+  padding-top: 2%;
+}
+
+.terrain-cell {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: white;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}

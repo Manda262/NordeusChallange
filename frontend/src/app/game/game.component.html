@@ -1,0 +1,15 @@
+<div
+  class="terrain-grid"
+  [ngStyle]="{
+    'grid-template-columns': getGridTemplate(),
+    'grid-template-rows': getGridTemplate()
+  }"
+>
+  <div *ngFor="let row of rows">
+    <div
+      *ngFor="let column of columns"
+      [ngStyle]="{ 'background-color': getColorForHeight(row, column) }"
+      class="terrain-cell"
+    ></div>
+  </div>
+</div>
