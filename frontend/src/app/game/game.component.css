@@ -1,3 +1,16 @@
+.backImg {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url("../../assets/pozadinaIgra.png");
+  background-size: cover; /* Ensure the image covers the entire screen */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .terrain-grid {
   display: grid;
   justify-content: center;

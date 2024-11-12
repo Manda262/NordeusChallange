@@ -1,15 +1,21 @@
-<div
-  class="terrain-grid"
-  [ngStyle]="{
-    'grid-template-columns': getGridTemplate(),
-    'grid-template-rows': getGridTemplate()
-  }"
->
-  <div *ngFor="let row of rows">
-    <div
-      *ngFor="let column of columns"
-      [ngStyle]="{ 'background-color': getColorForHeight(row, column) }"
-      class="terrain-cell"
-    ></div>
+<div class="backImg">
+  <mat-progress-bar
+    mode="determinate"
+    value="{{ loadPercentage }}"
+  ></mat-progress-bar>
+  <div
+    class="terrain-grid"
+    [ngStyle]="{
+      'grid-template-columns': getGridTemplate(),
+      'grid-template-rows': getGridTemplate()
+    }"
+  >
+    <div *ngFor="let row of pixelMatrix">
+      <div
+        *ngFor="let height of row"
+        [ngStyle]="{ 'background-color': getColorForHeight(height) }"
+        class="terrain-cell"
+      ></div>
+    </div>
   </div>
 </div>

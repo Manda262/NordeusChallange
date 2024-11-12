@@ -1,0 +1,27 @@
+<div class="backImg">
+  <div class="mainMenu">
+    <span class="gameTitle">Average Hight Guesrr</span>
+    <mat-form-field>
+      <mat-label>Map quality</mat-label>
+      <mat-select
+        [(ngModel)]="numOfCells"
+        (selectionChange)="onOptionChange($event)"
+      >
+        <mat-option value="1">Very low</mat-option>
+        <mat-option value="2">Low</mat-option>
+        <mat-option value="5">Medium</mat-option>
+        <mat-option value="10">Good</mat-option>
+        <mat-option value="20">Very good</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="highScore">
+      High Score: <span class="scoreValue">1234</span>
+    </div>
+
+    <button mat-button class="custom-button" routerLink="/game">Play</button>
+  </div>
+  <span class="desc"
+    >Guess the island with highest average hight as many times in row as
+    possible with 3 live available</span
+  >
+</div>

@@ -1,0 +1,173 @@
+.backImg {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-image: url("../../assets/pozadina.png");
+  background-size: cover; /* Ensure the image covers the entire screen */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainMenu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-self: center;
+  background-color: lightgray;
+  /* Background styling for the container div */
+  background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); /* Soft shadow around the container */
+  max-width: 400px;
+}
+
+/* Styling for the game title */
+.gameTitle {
+  font-family: "Press Start 2P", cursive;
+  color: #00ffcc;
+  font-size: 2rem;
+  padding: 10px 20px;
+  text-align: center;
+  text-shadow: 0px 0px 8px #00ffcc, 0px 0px 12px #00ffcc;
+  background-color: #1a1a1a; /* Dark background for contrast */
+  border: 2px solid #00ffcc; /* Border to match neon style */
+  border-radius: 10px;
+  display: inline-block;
+  transition: color 0.3s, text-shadow 0.3s, border-color 0.3s;
+}
+
+/* Glow effect on hover */
+.gameTitle:hover {
+  color: #ff66cc;
+  text-shadow: 0px 0px 12px #ff66cc, 0px 0px 16px #ff66cc;
+  border-color: #ff66cc;
+}
+
+/* Style for the form field */
+mat-form-field {
+  font-family: "Press Start 2P", cursive;
+  color: #00ffcc; /* Neon color for text */
+  width: 100%; /* Full width of the container */
+  margin-top: 20px;
+}
+
+mat-label {
+  color: #00ffcc;
+  font-size: 1rem;
+}
+
+mat-label:hover {
+  color: #ff66cc; /* Change color when focused */
+}
+
+mat-select-value {
+  color: cyan !important;
+  background-color: #00ffcc;
+}
+
+mat-select {
+  border-radius: 5px;
+  color: #00ffcc !important;
+  text-decoration-color: #00ffcc;
+  text-shadow: 0px 0px 4px #00ffcc;
+}
+
+/* Mat-select dropdown options */
+mat-option {
+  font-family: "Press Start 2P", cursive;
+  background-color: #1a1a1a;
+  color: #00ffcc;
+  text-shadow: 0px 0px 4px #00ffcc;
+}
+
+mat-option:hover {
+  color: #ff66cc;
+  text-shadow: 0px 0px 4px #ff66cc;
+}
+
+mat-select-arrow {
+  color: #00ffcc !important;
+}
+
+/* Focused outline effect */
+mat-form-field-outline:hover {
+  border-color: #ff66cc;
+  box-shadow: 0px 0px 8px #ff66cc;
+}
+
+/* High score styling */
+.highScore {
+  font-family: "Press Start 2P", cursive;
+  color: #00ffcc;
+  font-size: 1.5rem;
+  margin: 20px 0;
+  text-align: center;
+  text-shadow: 0px 0px 8px #00ffcc, 0px 0px 12px #00ffcc;
+  background-color: #1a1a1a;
+  padding: 10px 20px;
+  border: 2px solid #00ffcc;
+  border-radius: 8px;
+  display: inline-block;
+  width: fit-content;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Highlight the score value in pink for emphasis */
+.highScore .scoreValue {
+  color: #ff66cc;
+  text-shadow: 0px 0px 6px #ff66cc, 0px 0px 8px #ff66cc;
+  font-size: 1.8rem;
+}
+
+/* Custom button styling */
+.custom-button {
+  font-family: "Press Start 2P", cursive; /* Match the font of other elements */
+  color: #00ffcc; /* Neon cyan text color */
+  background-color: #1a1a1a; /* Dark background */
+  border: 2px solid #00ffcc; /* Neon cyan border */
+  padding: 10px 20px; /* Padding around the text */
+  border-radius: 10px; /* Rounded corners for a smooth look */
+  font-size: 1.2rem; /* Font size consistent with form fields */
+  cursor: pointer; /* Pointer cursor to indicate interactivity */
+  text-align: center; /* Center the text */
+  display: inline-block; /* Inline-block so it behaves like an inline element but can have block properties */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s,
+    text-shadow 0.3s; /* Smooth transitions */
+  box-shadow: 0px 0px 10px rgba(0, 255, 204, 0.7); /* Subtle glow effect for the button */
+}
+
+/* Button hover effect */
+.custom-button:hover {
+  background-color: #00ffcc; /* Cyan background on hover */
+  color: black; /* Change text color to black for contrast */
+  border-color: #ff66cc; /* Pink border on hover */
+  text-shadow: 0px 0px 8px #ff66cc, 0px 0px 12px #ff66cc; /* Neon pink glow effect */
+}
+
+/* Button focus effect (if needed) */
+.custom-button:focus {
+  outline: none;
+  box-shadow: 0px 0px 8px rgba(255, 102, 204, 0.7); /* Pink outline on focus */
+}
+
+.desc {
+  color: white; /* White text color */
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.2rem; /* Slightly larger font size */
+  margin-top: 20px; /* Space between the main menu and the span */
+  text-shadow: 0px 0px 10px rgba(0, 255, 204, 0.7),
+    0px 0px 20px rgba(0, 255, 204, 0.7); /* Neon glow effect */
+  transition: text-shadow 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Add a hover effect on the span */
+.desc:hover {
+  text-shadow: 0px 0px 20px rgba(255, 102, 204, 0.8),
+    0px 0px 30px rgba(255, 102, 204, 0.8); /* Change glow color on hover */
+}

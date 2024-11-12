@@ -35,7 +35,6 @@ export class TerrainService {
     { height: 1000, color: '#1f0f08' }, // Vrlo tamna braon za najvišu tačku
   ];
 
-  private numberOfCells = 10;
   private originalCellSize = 20;
 
   getColorForHeight(height: number): string {
@@ -92,8 +91,12 @@ export class TerrainService {
       .map((row) => row.split(' ').map((cell) => parseFloat(cell)));
   }
 
-  getNumberOfCells() {
-    return this.numberOfCells;
+  setNumberOfCells(numOfCells: number) {
+    localStorage.setItem('numOfCells', JSON.stringify(numOfCells));
+  }
+
+  getNumberOfCells(): number {
+    return JSON.parse(localStorage.getItem('numOfCells'));
   }
 
   getOriginalCellSize() {

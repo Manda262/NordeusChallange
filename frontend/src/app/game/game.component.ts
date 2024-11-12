@@ -10,25 +10,35 @@ export class GameComponent implements OnInit {
   constructor(private terrainService: TerrainService) {}
 
   ngOnInit(): void {
+    this.loadPercentage = 0;
     this.numOfCells = this.terrainService.getNumberOfCells();
+    if (!this.numOfCells) this.numOfCells = 20;
+    const matrixSize = this.numOfCells * 29 + 1;
+    this.pixelMatrix = [];
     this.terrainService.getTerrainMatrix().subscribe(
       (matrixBE: number[][]) => {
         this.terrainMatrix = matrixBE;
+        console.log(matrixSize);
+        for (let i = 0; i < matrixSize; i++) {
+          this.pixelMatrix[i] = [];
+          for (let j = 0; j < matrixSize; j++) {
+            this.pixelMatrix[i][j] = this.getHeight(i, j);
+            if (j == 0) {
+              this.loadPercentage =
+                (100 * (i * matrixSize + j)) / (matrixSize * matrixSize);
+            }
+          }
+        }
+        this.loadPercentage = 100;
       },
       (error) => {
         console.error('Error fetching terrain matrix:', error);
       }
     );
-    this.columns = Array(this.numOfCells * 29 + 1)
-      .fill(null)
-      .map((x, i) => i);
-    this.rows = Array(this.numOfCells * 29 + 1)
-      .fill(null)
-      .map((x, i) => i);
   }
 
-  getColorForHeight(x: number, y: number): string {
-    return this.terrainService.getColorForHeight(this.getHeight(x, y));
+  getColorForHeight(height: number): string {
+    return this.terrainService.getColorForHeight(height);
   }
 
   getHeight(x: number, y: number): number {
@@ -73,7 +83,6 @@ export class GameComponent implements OnInit {
           (this.numOfCells - (x % this.numOfCells)) *
             (this.numOfCells - (y % this.numOfCells)));
     height = Math.round(height / (this.numOfCells * this.numOfCells));
-    console.log(x, y, height, field1, field2, field3, field4);
     return height;
   }
 
@@ -85,7 +94,7 @@ export class GameComponent implements OnInit {
   }
 
   terrainMatrix: number[][] = [];
-  rows: number[];
-  columns: number[];
+  pixelMatrix: number[][] = [];
   numOfCells: number;
+  loadPercentage: number;
 }
