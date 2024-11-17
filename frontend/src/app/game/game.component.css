@@ -9,12 +9,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: background-color 0.3s ease; /* Smooth transition */
 }
 
 .terrain-grid {
   display: grid;
   justify-content: center;
-  padding-top: 2%;
+  padding-top: 0.5%;
 }
 
 .terrain-cell {
@@ -27,4 +28,123 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  cursor: pointer;
+}
+
+.gameHeader {
+  display: flex; /* Use flexbox to align children horizontally */
+  justify-content: space-between;
+  align-items: center; /* Align items vertically in the center */
+  width: 600px;
+}
+
+.lives {
+  display: flex; /* Use flexbox to display hearts inline */
+}
+
+.life {
+  display: inline-block;
+}
+
+.heart {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 5px;
+}
+
+.backImg.wrong {
+  background-color: rgba(255, 0, 0, 0.5); /* Semi-transparent red */
+  background-image: none;
+}
+
+.backImg.correct {
+  background-color: rgba(8, 216, 46, 0.5); /* Semi-transparent red */
+  background-image: none;
+}
+
+.level {
+  font-family: "Press Start 2P", cursive;
+  color: #00ffcc;
+  font-size: 1.5rem;
+  margin: 20px 0;
+  text-align: center;
+  text-shadow: 0px 0px 8px #00ffcc, 0px 0px 12px #00ffcc;
+  background-color: #1a1a1a;
+  padding: 10px 20px;
+  border: 2px solid #00ffcc;
+  border-radius: 8px;
+  display: inline-block;
+  width: fit-content;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Highlight the score value in pink for emphasis */
+.level .levelAmount {
+  color: #ff66cc;
+  text-shadow: 0px 0px 6px #ff66cc, 0px 0px 8px #ff66cc;
+  font-size: 1.8rem;
+}
+
+.highScore {
+  font-family: "Press Start 2P", cursive;
+  color: #00ffcc;
+  font-size: 1.5rem;
+  margin: 20px 0;
+  text-align: center;
+  text-shadow: 0px 0px 8px #00ffcc, 0px 0px 12px #00ffcc;
+  background-color: #1a1a1a;
+  padding: 10px 20px;
+  border: 2px solid #00ffcc;
+  border-radius: 8px;
+  display: inline-block;
+  width: fit-content;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+/* Highlight the score value in pink for emphasis */
+.highScore .scoreValue {
+  color: #ff66cc;
+  text-shadow: 0px 0px 6px #ff66cc, 0px 0px 8px #ff66cc;
+  font-size: 1.8rem;
+}
+
+.gameOverScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  z-index: 10; /* Ensure it appears on top */
+}
+
+.gameOverMessage {
+  font-size: 3rem;
+  font-family: "Press Start 2P", cursive;
+  color: #ff3333;
+  margin-bottom: 20px;
+  text-shadow: 0px 0px 8px #ff3333, 0px 0px 12px #ff6666;
+}
+
+.playAgainButton {
+  font-size: 1.5rem;
+  font-family: "Press Start 2P", cursive;
+  color: #00ffcc;
+  background-color: #1a1a1a;
+  padding: 10px 20px;
+  border: 2px solid #00ffcc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+.playAgainButton:hover {
+  color: #ff66cc;
+  border-color: #ff66cc;
 }

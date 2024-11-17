@@ -1,8 +1,29 @@
-<div class="backImg">
+<div
+  class="backImg"
+  [class.wrong]="isWrongGuess"
+  [class.correct]="isCorrectGuess"
+>
   <mat-progress-bar
     mode="determinate"
     value="{{ loadPercentage }}"
   ></mat-progress-bar>
+  <div class="gameHeader">
+    <div class="level">
+      Level:<span class="levelAmount"> {{ currLevel }}</span>
+    </div>
+    <div class="lives">
+      <div class="life" *ngFor="let life of livesArray">
+        <img
+          *ngIf="isLive(life)"
+          src="../../assets/zivot-removebg-preview.png"
+          class="heart"
+        />
+      </div>
+    </div>
+    <div class="highScore">
+      Highscore:<span class="scoreValue"> {{ currHighscore }}</span>
+    </div>
+  </div>
   <div
     class="terrain-grid"
     [ngStyle]="{
@@ -12,10 +33,17 @@
   >
     <div *ngFor="let row of pixelMatrix">
       <div
-        *ngFor="let height of row"
-        [ngStyle]="{ 'background-color': getColorForHeight(height) }"
+        *ngFor="let cell of row"
+        [ngStyle]="{ 'background-color': getColorForHeight(cell.height) }"
         class="terrain-cell"
+        (click)="guess(cell.highest)"
       ></div>
     </div>
+  </div>
+  <div class="gameOverScreen" *ngIf="numOfLives == 0">
+    <div class="gameOverMessage">Game Over</div>
+    <button class="playAgainButton" (click)="backToMainMenu()">
+      Play Again
+    </button>
   </div>
 </div>

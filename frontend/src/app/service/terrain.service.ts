@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Cell } from '../models/cell';
 
 @Injectable({
   providedIn: 'root',
@@ -75,7 +76,7 @@ export class TerrainService {
     return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
   }
 
-  getTerrainMatrix(): Observable<number[][]> {
+  getTerrainMatrix(): Observable<Cell[][]> {
     return this.http
       .get('https://jobfair.nordeus.com/jf24-fullstack-challenge/test', {
         responseType: 'text',
@@ -83,12 +84,20 @@ export class TerrainService {
       .pipe(map((responseText) => this.parseTextToMatrix(responseText)));
   }
 
-  // Parsing logic to convert text to a 2D array of numbers
-  private parseTextToMatrix(text: string): number[][] {
+  // Parsing logic to convert text to a 2D array of Cell objects
+  private parseTextToMatrix(text: string): Cell[][] {
     return text
       .trim()
       .split('\n')
-      .map((row) => row.split(' ').map((cell) => parseFloat(cell)));
+      .map((row, y) =>
+        row.split(' ').map((cellValue, x) => ({
+          height: parseFloat(cellValue),
+          x: x,
+          y: y,
+          visited: false,
+          highest: false,
+        }))
+      );
   }
 
   setNumberOfCells(numOfCells: number) {
@@ -101,5 +110,29 @@ export class TerrainService {
 
   getOriginalCellSize() {
     return this.originalCellSize;
+  }
+
+  setNumberOfLives(numOfLives: number) {
+    localStorage.setItem('numOfLives', JSON.stringify(numOfLives));
+  }
+
+  getNumberOfLives() {
+    return JSON.parse(localStorage.getItem('numOfLives'));
+  }
+
+  getLevel() {
+    return JSON.parse(localStorage.getItem('level'));
+  }
+
+  setLevel(level: number) {
+    localStorage.setItem('level', JSON.stringify(level));
+  }
+
+  getHighscore() {
+    return JSON.parse(localStorage.getItem('highscore'));
+  }
+
+  setHighscore(score: number) {
+    localStorage.setItem('highscore', JSON.stringify(score));
   }
 }
