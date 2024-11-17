@@ -1,0 +1,94 @@
+Bugs
+
+Pixel size and how to implement it in layout dynamically - solved it be calculating 'grid-template-columns' and
+'grid-template-rows' dynamically in component part.
+
+Problem with CORS - temporarily solved it using the "Allow CORS" chrome extension.
+
+Working on customizing mat option form - Mat option (and other mat form components that I used)
+have a built-in layout, and it was hard to find how to change that layout. I solved the 99% issue,
+the only thing that is left is the arrow and line when the option is selected and still in focus. I found out
+that these components have built-in layout while inspecting my app and looking into a layout part of that component.
+
+Giving the user enough to be aware if he guessed correctly - solved it by adding a background appear green
+for correct answer and red for wrong answer.
+
+Clicks on the water just outside of the island - edge case bug that I solved pretty easily when I realized that I didn't use
+height >= 0 condition when checking if the answer is correct.
+
+
+
+Testing
+
+Clicking the edges or corners of the island.
+
+Attempt water clicks or clicks outside the map.
+
+Testing loading performance, how quickly does map load.
+
+Test if the correct and wrong guess act as expected (if the guess is wrong decrement the number of lives,
+if there are no more lives does the game end, etc.).
+
+Test algorithm that detects if the guess is correct or not, manually calculate which island has
+the highest average height for every of 10 islands and see if it works correctly.
+
+
+
+Possible features
+
+Implement users, users could compete against each other, they could track a user leaderboard, or 
+gain achievements when completing some parts of the game. User cups and leagues could be 
+organized.
+
+Implement a points system (for example the quicker you guess correctly the more points you get).
+
+The single-player mode could be improved by adding more maps and having maps appear in difficulty
+(more difficult maps appear later on in the game).
+
+Based on the user's performance or position on a leaderboard, adjust the difficulty of the maps or challenges in real-time.
+
+Allow users to earn or buy power-ups that can assist with the guessing process, like revealing the height of a certain pixel 
+or island or showing them one of the wrong answers.
+
+Game mode where parts of islands would be hidden, so the user must use his intuition and work with what he has.
+
+Map for colorblind users, where color map would be more appealing to them.
+
+
+
+Possible improvements
+
+Map color legend.
+
+Loading one map while in the main menu, or loading the next map while a user is taking his time for 
+guess.
+
+Make guard that '/game' can only become visible after completing the main menu.
+
+Make better responsiveness.
+
+Local storage data can be changed by user, so that won't be possible in real life game.
+
+Information about which island is highest should be stored in a database and be calculated before insertion, one map will be
+used multiple times, in this use case one map will be used multiple times for one user, and one boolean kept with cell height
+is not overloading the database.
+
+Quality of life is assured by not counting clicks (guesses) outside of the map. Part of the
+skillset needed for this game is to remember what island you guessed last time and not to
+click on the water part. 
+If I were to implement a feature that ensures that the user can't guess the same
+island twice it would be done in part of a code where the average height of the island is calculated
+and class Cell would have one more field "islandNum" which would increment whenever the new island
+is found. Once the user guessed an island incorrectly, "islandNum" would be stored in a list of
+already guessed islands.
+
+
+
+Factors that could affect my solution
+
+Matrix size: The larger the matrix, the more accurately the map can represent the inputs. 
+Maybe pixel color interpolation wouldn't be necessary.
+
+Number of lives:
+Fewer Lives: Increases tension and difficulty, making mistakes more punishing.
+More Lives: Reduces the sense of risk, potentially making the game less thrilling.

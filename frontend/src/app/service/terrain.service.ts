@@ -11,29 +11,28 @@ export class TerrainService {
   constructor(private http: HttpClient) {}
 
   private colorPalette = [
-    { height: 0, color: '#5dade2' }, // Voda (plava)
-    { height: 50, color: '#a3d9a5' }, // Svetlo toplija zelena
-    { height: 100, color: '#8dc381' }, // Srednje toplija zelena
-    { height: 150, color: '#7dae6d' }, // Srednje tamna zelena
-    { height: 200, color: '#6e965c' }, // Tamnija zelena
-    { height: 250, color: '#5f7f4a' }, // Tamno maslinasto zelena (prvi braon prelaz)
+    { height: 0, color: '#5dade2' },
+    { height: 50, color: '#a3d9a5' },
+    { height: 100, color: '#8dc381' },
+    { height: 150, color: '#7dae6d' },
+    { height: 200, color: '#6e965c' },
+    { height: 250, color: '#5f7f4a' },
 
-    // Toplije braon nijanse za više visine
-    { height: 300, color: '#c79b76' }, // Svetla peskovito braon
-    { height: 350, color: '#b38463' }, // Svetlija karamel braon
-    { height: 400, color: '#a3714f' }, // Svetlo toplija braon
-    { height: 450, color: '#956445' }, // Srednje svetla braon
-    { height: 500, color: '#87583b' }, // Srednje braon
-    { height: 550, color: '#7a4d32' }, // Tamno braon
-    { height: 600, color: '#6c4128' }, // Tamna zemljasto braon
-    { height: 650, color: '#5f3721' }, // Čokoladno braon
-    { height: 700, color: '#54301b' }, // Tamna čokoladna braon
-    { height: 750, color: '#4a2917' }, // Tamno smeđa
-    { height: 800, color: '#402212' }, // Tamnija smeđa
-    { height: 850, color: '#361c0f' }, // Vrlo tamna zemljasta braon
-    { height: 900, color: '#2d170d' }, // Najtamnija zemljasta braon
-    { height: 950, color: '#25120a' }, // Skoro crna braon za najviše nadmorske visine
-    { height: 1000, color: '#1f0f08' }, // Vrlo tamna braon za najvišu tačku
+    { height: 300, color: '#c79b76' },
+    { height: 350, color: '#b38463' },
+    { height: 400, color: '#a3714f' },
+    { height: 450, color: '#956445' },
+    { height: 500, color: '#87583b' },
+    { height: 550, color: '#7a4d32' },
+    { height: 600, color: '#6c4128' },
+    { height: 650, color: '#5f3721' },
+    { height: 700, color: '#54301b' },
+    { height: 750, color: '#4a2917' },
+    { height: 800, color: '#402212' },
+    { height: 850, color: '#361c0f' },
+    { height: 900, color: '#2d170d' },
+    { height: 950, color: '#25120a' },
+    { height: 1000, color: '#1f0f08' },
   ];
 
   private originalCellSize = 20;
