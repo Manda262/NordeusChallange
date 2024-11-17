@@ -43,21 +43,16 @@ export class TerrainService {
     if (height >= 1000)
       return this.colorPalette[this.colorPalette.length - 1].color;
 
-    // Find the two closest color stops
     const lower = this.colorPalette.find(
       (stop, i, arr) => stop.height <= height && arr[i + 1]?.height > height
     );
     const upper =
       this.colorPalette.find((stop) => stop.height > height) || lower;
 
-    // Calculate the interpolation ratio
-    const ratio =
-      (height - (lower?.height || 0)) /
-      ((upper?.height || 1) - (lower?.height || 1));
-    return this.interpolateColor(lower!.color, upper!.color, ratio);
+    const ratio = (height - lower.height) / (upper.height - lower.height);
+    return this.interpolateColor(lower.color, upper.color, ratio);
   }
 
-  // Helper function to interpolate between two hex colors
   private interpolateColor(
     color1: string,
     color2: string,
@@ -84,7 +79,6 @@ export class TerrainService {
       .pipe(map((responseText) => this.parseTextToMatrix(responseText)));
   }
 
-  // Parsing logic to convert text to a 2D array of Cell objects
   private parseTextToMatrix(text: string): Cell[][] {
     return text
       .trim()

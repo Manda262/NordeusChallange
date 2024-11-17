@@ -39,7 +39,6 @@ export class GameComponent implements OnInit {
         }
 
         let highestIslandCell = this.findHighestCell(this.islandsList);
-        console.log(highestIslandCell);
         this.setHeighestIsland(highestIslandCell.x, highestIslandCell.y);
 
         for (let i = 0; i < matrixSize; i++) {
@@ -270,12 +269,12 @@ export class GameComponent implements OnInit {
   }
 
   private triggerWrongGuessEffect() {
-    this.isWrongGuess = true; // Activate the reddish flash
+    this.isWrongGuess = true;
     setTimeout(() => {
-      this.isWrongGuess = false; // Deactivate after 300ms
+      this.isWrongGuess = false;
       this.terrainService.setNumberOfLives(this.numOfLives - 1);
       this.numOfLives--;
-    }, 300); // Duration of the flash
+    }, 300);
   }
 
   backToMainMenu() {
@@ -285,12 +284,12 @@ export class GameComponent implements OnInit {
   }
 
   private triggerCorrectGuessEffect() {
-    this.isCorrectGuess = true; // Activate the reddish flash
+    this.isCorrectGuess = true;
     setTimeout(() => {
-      this.isCorrectGuess = false; // Deactivate after 300ms
+      this.isCorrectGuess = false;
       this.increaseLevel();
       window.location.reload();
-    }, 300); // Duration of the flash
+    }, 300);
   }
 
   isLive(i: number) {
